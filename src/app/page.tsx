@@ -36,14 +36,6 @@ function saveVCardAndText() {
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
 
-const contactDetails = [
-  { label: "First Name", value: "Jeff" },
-  { label: "Last Name", value: "Bartosz" },
-  { label: "Phone", value: "708.878.4215" },
-  { label: "Company", value: "Best-Tronics Manufacturing Inc." },
-  { label: "Email", value: "jeff@best-tronics.com" },
-];
-
 export default function Home() {
   return (
     <div className="page-bg flex min-h-screen items-center justify-center px-5 py-10">
@@ -63,20 +55,6 @@ export default function Home() {
                 <span className="h-2 w-2 rounded-full bg-[#4cff72] shadow-[0_0_0_6px_rgba(76,255,114,0.15)]" />
                 Live Contact
               </span>
-            </div>
-
-            <div className="mb-4 grid grid-cols-1 gap-3 text-sm text-zinc-200">
-              {contactDetails.map(({ label, value }) => (
-                <div
-                  key={label}
-                  className="flex items-center justify-between rounded-xl border border-white/5 bg-white/5 px-4 py-3 shadow-inner shadow-black/30"
-                >
-                  <span className="text-[12px] uppercase tracking-wide text-zinc-400">
-                    {label}
-                  </span>
-                  <span className="text-sm font-medium text-white">{value}</span>
-                </div>
-              ))}
             </div>
 
             <button
