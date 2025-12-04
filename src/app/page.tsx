@@ -27,11 +27,13 @@ function saveVCardAndText() {
   document.body.appendChild(link);
   link.click();
   link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const smsLink = `sms:${smsNumber}${isIOS ? "&" : "?"}body=${smsBody}`;
-  window.location.href = smsLink;
+  // Give the download a short moment to register before opening SMS.
+  setTimeout(() => {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const smsLink = `sms:${smsNumber}${isIOS ? "&" : "?"}body=${smsBody}`;
+    window.location.href = smsLink;
+  }, 400);
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
 
 const contactDetails = [
